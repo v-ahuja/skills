@@ -60,7 +60,19 @@ a first-class behavior or treats inherited behavior as new.
 ## Explain one slice at a time
 
 When the user wants an incremental walkthrough, cover one coherent slice per
-response and stop at its natural boundary. For each slice:
+response and stop at its natural boundary. Center each slice on one behavioral
+idea or runtime handoff. A reader should be able to summarize its takeaway in
+one sentence without needing concepts reserved for later slices. If that
+sentence joins two independently useful facts with “and,” split the slice
+unless the second fact is necessary to understand the first.
+
+Split a slice when it introduces multiple independent rules, crosses more than
+one significant component boundary, or requires the reader to track several
+branches or states at once. If one idea spans several locations, show multiple
+small, labeled excerpts rather than one large excerpt. If those locations
+establish separate rules, make them separate slices.
+
+For each slice:
 
 1. Show a small, exact diff excerpt inline. Include only the lines needed to
    understand the change. Mark omissions clearly; do not fabricate a unified
@@ -74,6 +86,13 @@ response and stop at its natural boundary. For each slice:
 If the file is entirely new, an ordinary code excerpt may be clearer than a
 wall of added-line markers. If the distinction between old and new behavior is
 the point, use a unified diff.
+
+Keep displayed code to the minimum needed to support the explanation. As a
+soft target, show roughly 15–40 relevant lines in a slice; treat 60 lines as an
+exceptional upper bound, not a quota. Repetitive or declarative code may exceed
+that range when it remains easy to scan, while dense control flow may require a
+much smaller excerpt. Use conceptual load, not line count, as the primary
+measure of slice size.
 
 When the user says “next,” continue from the existing map without repeating the
 earlier explanation. If they challenge an assumption, return to the diff or
